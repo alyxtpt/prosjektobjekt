@@ -13,7 +13,7 @@
          </font>
       </Text>
       <Button layoutX="240.0" layoutY="286.0" mnemonicParsing="false" onAction="#switchToMain" text="Go to main menu" />
-      <Text layoutX="234.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Highscore: " />
+      <Text layoutX="234.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score: " />
       <Text fx:id="highscore" layoutX="296.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="error" wrappingWidth="169.57470703125" />
    </children>
 </Pane>

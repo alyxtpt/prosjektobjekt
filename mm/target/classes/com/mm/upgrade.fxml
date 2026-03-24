@@ -16,5 +16,6 @@
       <Button layoutX="111.0" layoutY="249.0" mnemonicParsing="false" onAction="#upgradeDmg" text="+1 Damage" />
       <Button layoutX="406.0" layoutY="249.0" mnemonicParsing="false" onAction="#upgradeAcc" text="+1 Accuracy" />
       <Button layoutX="265.0" layoutY="249.0" mnemonicParsing="false" onAction="#upgradePotions" text="+1 Potion" />
+      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#saveFile" text="Save File" />
    </children>
 </Pane>

@@ -1,12 +1,19 @@
 package com.mm;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -41,6 +48,44 @@ public class Controller {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void openFile(ActionEvent e) throws IOException {
+        List<Double> info = new ArrayList<Double>();
+        FileChooser fileChooser = new FileChooser();
+        ExtensionFilter ex = new ExtensionFilter("Text Files", "*.txt");
+
+        fileChooser.getExtensionFilters().add(ex);
+
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            Scanner fileIn = null;
+
+            try {
+                fileIn = new Scanner(selectedFile);
+                if (selectedFile.isFile()) {
+                    while (fileIn.hasNextLine()) {
+                        String line = fileIn.nextLine();
+                        info.add(Double.valueOf(line));
+                    }
+                }
+            } catch (FileNotFoundException exc) {
+                exc.printStackTrace();
+            } finally {
+                fileIn.close();
+            }
+        }
+        weapon = new Weapons(info.get(0),info.get(1),info.get(2));
+        HealthBars.highsc = info.get(3);
+
+        root = FXMLLoader.load(getClass().getResource("upgrade.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void switchToPlay(ActionEvent event) throws IOException {

@@ -23,11 +23,13 @@ public class GameOver implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        highscore.setText(Integer.toString(HealthBars.highsc));
+        highscore.setText(Integer.toString((int) HealthBars.highsc));
     }
 
 
     public void switchToMain(ActionEvent event) throws IOException {
+        HealthBars.highsc = 0;
+
         root = FXMLLoader.load(getClass().getResource("main.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

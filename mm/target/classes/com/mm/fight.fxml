@@ -19,7 +19,7 @@
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff9b1f" height="59.0" layoutX="14.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="249.0" />
       <Button fx:id="Attack" layoutX="21.0" layoutY="336.0" mnemonicParsing="false" onAction="#damageMonster" prefHeight="41.0" prefWidth="98.0" text="Attack" />
-      <Button fx:id="HPP" layoutX="135.0" layoutY="336.0" mnemonicParsing="false" onAction="#Heal" prefHeight="41.0" prefWidth="121.0" text="Use HP-Potion (2)" />
+      <Button fx:id="HPP" layoutX="135.0" layoutY="336.0" mnemonicParsing="false" onAction="#Heal" prefHeight="41.0" prefWidth="121.0" text="HP-Potion (2)" />
       <Line endX="72.5" endY="176.0" layoutX="185.0" layoutY="92.0" startX="36.5" startY="204.0" />
       <ImageView fx:id="imageview" fitHeight="206.0" fitWidth="217.0" layoutX="334.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -28,7 +28,6 @@
       </ImageView>
       <ProgressBar fx:id="MyHP" layoutX="14.0" layoutY="298.0" prefHeight="29.0" prefWidth="249.0" progress="1.0" />
       <ProgressBar fx:id="EnemyHP" layoutX="324.0" layoutY="56.0" prefHeight="29.0" prefWidth="227.0" progress="1.0" />
-      <Button layoutX="21.0" layoutY="16.0" mnemonicParsing="false" text="Save file" />
       <Text fx:id="MyHPtext" layoutX="219.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="RIGHT" />
       <Text fx:id="EnemyHPtext" layoutX="503.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="RIGHT" />
       <Text layoutX="241.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="RIGHT" />

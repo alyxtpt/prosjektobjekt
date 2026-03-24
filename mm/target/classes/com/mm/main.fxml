@@ -15,6 +15,6 @@
          </font>
       </Text>
       <Button layoutX="93.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchToPlay" prefHeight="64.0" prefWidth="134.0" text="Start new save file" textAlignment="CENTER" />
-      <Button layoutX="374.0" layoutY="274.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="134.0" text="Load save file" textAlignment="CENTER" />
+      <Button layoutX="374.0" layoutY="274.0" mnemonicParsing="false" onAction="#openFile" prefHeight="64.0" prefWidth="134.0" text="Load save file" textAlignment="CENTER" />
    </children>
 </Pane>

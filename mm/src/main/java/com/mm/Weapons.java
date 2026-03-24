@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class Weapons {
     public double dmg;
     public double acc;
-    public int potions;
+    public double potions;
 
     private Parent root;
     private Stage stage;
@@ -29,6 +29,12 @@ public class Weapons {
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    public Weapons(double dmg_, double acc_, double potions_) {
+        dmg = dmg_;
+        acc = acc_;
+        potions = potions_;
     }
 
     @Override

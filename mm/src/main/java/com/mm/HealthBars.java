@@ -24,9 +24,9 @@ import javafx.util.Duration;
 public class HealthBars implements Initializable {
     private double mHP = 1;
     private double eHP = 1;
-    Random random = new Random();
-    public static int highsc = 0;
-    private int potions = Controller.weapon.potions;
+    private Random random = new Random();
+    public static double highsc = 0;
+    private int potions = (int) Math.round(Controller.weapon.potions);
 
     private Parent root;
     private Scene scene;
@@ -53,7 +53,7 @@ public class HealthBars implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         MyHP.setStyle("-fx-accent: red;");
         EnemyHP.setStyle("-fx-accent: red;");
-        HPP.setText("Use HP-Potion (" + Integer.toString(potions) + ")" );
+        HPP.setText("HP-Potion (" + Integer.toString(potions) + ")" );
         int randint = random.nextInt(3);
         String url;
         url = switch (randint) {
@@ -86,7 +86,7 @@ public class HealthBars implements Initializable {
     public void potionUseText() {
         potions -= 1;
         if (potions > 0) {
-            HPP.setText("Use HP-Potion (" + Integer.toString(potions) + ")" );
+            HPP.setText("HP-Potion (" + Integer.toString(potions) + ")" );
         } else {
             HPP.setText("0 potions left");
             HPP.setDisable(true);
@@ -103,7 +103,7 @@ public class HealthBars implements Initializable {
             missAni(myMiss);
         }
 
-        if (hitOrMiss(highsc*4)) {
+        if (hitOrMiss(highsc*0.4)) {
             mHP -= random.nextDouble() * 0.2;
             MyHP.setProgress(mHP);
             MyHPtext.setText(Integer.toString((int) Math.round(mHP*100)));
@@ -122,7 +122,7 @@ public class HealthBars implements Initializable {
         }
 
         if (Math.round(eHP*100) <= 0) {
-            highsc += 1;
+            highsc += 10;
             root = FXMLLoader.load(getClass().getResource("upgrade.fxml"));
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -147,3 +147,4 @@ public class HealthBars implements Initializable {
         fade.play();
     }
 }
+
