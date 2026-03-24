@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.mm.FileTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! -- in com.mm.FileTest
+com.mm.FileTest.testFileNotEmpty -- Time elapsed: 0.012 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.mm.Upgrade.saveToFile(java.io.File)" because "this.upgrade" is null
+	at com.mm.FileTest.testFileNotEmpty(FileTest.java:64)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

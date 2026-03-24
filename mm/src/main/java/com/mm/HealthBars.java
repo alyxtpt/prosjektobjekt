@@ -49,6 +49,8 @@ public class HealthBars implements Initializable {
     @FXML
     private ImageView imageview;
 
+    public HealthBars() {}
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         MyHP.setStyle("-fx-accent: red;");

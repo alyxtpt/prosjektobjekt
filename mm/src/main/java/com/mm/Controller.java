@@ -51,7 +51,7 @@ public class Controller {
     }
 
     public void openFile(ActionEvent e) throws IOException {
-        List<Double> info = new ArrayList<Double>();
+        List<Double> info = new ArrayList<>();
         FileChooser fileChooser = new FileChooser();
         ExtensionFilter ex = new ExtensionFilter("Text Files", "*.txt");
 
@@ -59,33 +59,43 @@ public class Controller {
 
         File selectedFile = fileChooser.showOpenDialog(stage);
 
-        if (selectedFile != null) {
-            Scanner fileIn = null;
+        if (selectedFile == null) return;
 
-            try {
-                fileIn = new Scanner(selectedFile);
-                if (selectedFile.isFile()) {
-                    while (fileIn.hasNextLine()) {
-                        String line = fileIn.nextLine();
+        if (!selectedFile.isFile()) {
+            throw new IllegalArgumentException("Invalid file");
+        }
+
+        Scanner fileIn = null;
+        try {
+            fileIn = new Scanner(selectedFile);
+                while (fileIn.hasNextLine()) {
+                    String line = fileIn.nextLine();
+                    try {
                         info.add(Double.valueOf(line));
+                    } catch (NumberFormatException exc) {
+                        throw new NumberFormatException("Invalid value in file: " + line);
                     }
                 }
-            } catch (FileNotFoundException exc) {
-                exc.printStackTrace();
-            } finally {
-                fileIn.close();
-            }
+        } catch (FileNotFoundException exc) {
+            exc.printStackTrace();
+        } finally {
+            if (fileIn != null) fileIn.close();
         }
-        weapon = new Weapons(info.get(0),info.get(1),info.get(2));
-        HealthBars.highsc = info.get(3);
 
-        root = FXMLLoader.load(getClass().getResource("upgrade.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
+        if (info.size() == 4) {    
+            weapon = new Weapons(info.get(0),info.get(1),info.get(2));
+            HealthBars.highsc = info.get(3);
+
+            root = FXMLLoader.load(getClass().getResource("upgrade.fxml"));
+            stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.show();
+        } else {
+            throw new IllegalArgumentException("File has wrong format");
+        }
     }
 
     public void switchToPlay(ActionEvent event) throws IOException {

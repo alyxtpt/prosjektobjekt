@@ -53,23 +53,23 @@ public class Upgrade {
         fileChooser.getExtensionFilters().add(ex);
 
         File selectedFile = fileChooser.showSaveDialog(stage);
-        PrintWriter fileOut = null;
-
-        try {
-            fileOut = new PrintWriter(selectedFile);
-            fileOut.print(Controller.weapon.dmg + "\n");
-            fileOut.print(Controller.weapon.acc + "\n");
-            fileOut.print(Controller.weapon.potions + "\n");
-            fileOut.print(HealthBars.highsc);
-        } catch (FileNotFoundException | NullPointerException e) {
-            e.printStackTrace();
-        } finally {
-            fileOut.close();
-        }
-
         if (selectedFile != null) {
-            System.out.println("Saved File");
-            System.out.println(selectedFile.getPath());
+            saveToFile(selectedFile);
         }
     }
+
+    public void saveToFile(File file) {
+    PrintWriter fileOut = null;
+    try {
+        fileOut = new PrintWriter(file);
+        fileOut.print(Controller.weapon.dmg + "\n");
+        fileOut.print(Controller.weapon.acc + "\n");
+        fileOut.print(Controller.weapon.potions + "\n");
+        fileOut.print(HealthBars.highsc);
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } finally {
+        if (fileOut != null) fileOut.close();
+    }
+}
 }
