@@ -10,7 +10,7 @@ En viktig del av spillet er progresjonssystemet, hvor spilleren kan oppgradere v
 Applikasjonen er utviklet med JavaFX og SceneBuilder for å lage et grafisk brukergrensesnitt. I tillegg har spillet støtte for lagring og lasting av spilldata, slik at spilleren kan fortsette der de slapp.
 
 ## Diagram
-![sekvensdiagram](./img/sekvensdiagram.png)
+![sekvensdiagram](mm/img/sekvensdiagram.png)
 
 ## Spørsmål
 - **Hvilke deler av pensum i emnet dekkes i prosjektet, og på hvilken måte? (For eksempel bruk av arv, interface, delegering osv.)**
